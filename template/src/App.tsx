@@ -1,10 +1,10 @@
-import * as React from 'react';
-import './App.css';
+import * as React from "react";
+import "./App.scss";
 
-import logo from './logo.svg';
+import logo from "./logo.svg";
 
 class App extends React.Component {
-  public render() {
+  render() {
     return (
       <div className="App">
         <header className="App-header">
@@ -19,4 +19,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export { App };

@@ -98,7 +98,7 @@ git clean -df
 
 # Install the app in a temporary location
 cd $temp_app_path
-npx create-react-app test-app --scripts-version=react-scripts-ts
+npx create-react-app test-app --scripts-version=react-scripts-replicated
 
 # TODO: verify we installed prerelease
 
