@@ -1,5 +1,8 @@
 'use strict';
 
+const path = require("path");
+const { appNodeModules } = require('../../paths');
+
 const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 const monacoWebpackPlugin = new MonacoWebpackPlugin({
@@ -18,7 +21,7 @@ const monacoWebpackPlugin = new MonacoWebpackPlugin({
 
 let isMonacoInstalled = false;
 try {
-  isMonacoInstalled = require.resolve("monaco-editor").length > 0
+  isMonacoInstalled = require.resolve(path.join(appNodeModules, "monaco-editor/package.json")).length > 0
 } catch (e) {} // eslint-disable-line no-empty
 
 module.exports = isMonacoInstalled ? [

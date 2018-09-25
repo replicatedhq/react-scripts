@@ -28,11 +28,11 @@ jobs:
   deploy:
     working_directory: ~/repo
     docker:
-      - image: 'circleci/node:10'
+      - image: circleci/node:10
     steps:
       - run: |
           if [ "${CIRCLE_PROJECT_USERNAME}" != "replicatedhq" ]; then
-            echo nope nope nope
+            echo Unable to deploy, the project is currently on a fork.
             exit 1
           fi
       - checkout
@@ -42,7 +42,8 @@ jobs:
           name: publish
           command: |
             echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" >> ~/.npmrc
-            npm publish
+            # Run publish npm module
+            `yarn bin`/publish
 workflows:
   version: 2
   build_accept_deploy:
